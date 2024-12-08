@@ -2,8 +2,8 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
-data = pd.read_csv("305335hw03data.xlsx - Grade.csv")
-data = data.sort_values(by='grade')
+data = pd.read_csv("305335hw03data.xlsx - point.csv")
+data = data.sort_values(by='point')
 
 ck1 = 5.5
 ck2 = 56
@@ -13,6 +13,7 @@ ck5 = 75.9
 ck6 = 78.6
 ck7 = 83.8
 ck8 = 91.9
+point_arr = [ck1, ck2, ck3, ck4, ck5, ck6, ck7, ck8]
 
 ck = []
 ck1arr = []
@@ -24,33 +25,33 @@ ck6arr = []
 ck7arr = []
 ck8arr = []
 
-for i in data['grade']:
-    abs_grade1 = abs(i-ck1)
-    abs_grade2 = abs(i-ck2)
-    abs_grade3 = abs(i-ck3)
-    abs_grade4 = abs(i-ck4)
-    abs_grade5 = abs(i-ck5)
-    abs_grade6 = abs(i-ck6)
-    abs_grade7 = abs(i-ck7)
-    abs_grade8 = abs(i-ck8)
-    ck = [abs_grade1, abs_grade2, abs_grade3, abs_grade4, abs_grade5, abs_grade6, abs_grade7, abs_grade8]
+for i in data['point']:
+    abs_point1 = abs(i-ck1)
+    abs_point2 = abs(i-ck2)
+    abs_point3 = abs(i-ck3)
+    abs_point4 = abs(i-ck4)
+    abs_point5 = abs(i-ck5)
+    abs_point6 = abs(i-ck6)
+    abs_point7 = abs(i-ck7)
+    abs_point8 = abs(i-ck8)
+    ck = [abs_point1, abs_point2, abs_point3, abs_point4, abs_point5, abs_point6, abs_point7, abs_point8]
     print(i,"ck: ", ck,"\n\n")
     minCk = min(ck)
-    if minCk == abs_grade1:
+    if minCk == abs_point1:
         ck1arr.append(i)
-    elif minCk == abs_grade2:
+    elif minCk == abs_point2:
         ck2arr.append(i)
-    elif minCk == abs_grade3:
+    elif minCk == abs_point3:
         ck3arr.append(i)
-    elif minCk == abs_grade4:
+    elif minCk == abs_point4:
         ck4arr.append(i)
-    elif minCk == abs_grade5:
+    elif minCk == abs_point5:
         ck5arr.append(i)
-    elif minCk == abs_grade6:
+    elif minCk == abs_point6:
         ck6arr.append(i)
-    elif minCk == abs_grade7:
+    elif minCk == abs_point7:
         ck7arr.append(i)
-    elif minCk == abs_grade8:
+    elif minCk == abs_point8:
         ck8arr.append(i)
 
 print("ck1: ", ck1arr,"\n\n")
@@ -95,6 +96,8 @@ for i in ck7arr:
 for i in ck8arr:
     ck8arrSum += abs(i-ck8)
 
+ckArrLen = [len(ck1arr), len(ck2arr), len(ck3arr), len(ck4arr), len(ck5arr), len(ck6arr), len(ck7arr), len(ck8arr)]
+
 print("ck1arrSum: ", ck1arrSum,"\n\n")
 print("ck2arrSum: ", ck2arrSum,"\n\n")
 print("ck3arrSum: ", ck3arrSum,"\n\n")
@@ -107,5 +110,13 @@ print("ck8arrSum: ", ck8arrSum,"\n\n")
 ckSum = ck1arrSum + ck2arrSum + ck3arrSum + ck4arrSum + ck5arrSum + ck6arrSum + ck7arrSum + ck8arrSum
 print("ckSum: ", ckSum,"\n\n")
 
-p = ckSum / sum(data['grade'])
+p = ckSum / sum(data['point'])
 print("p: ", p,"\n\n")
+
+plt.figure(figsize=(10, 6))
+plt.bar(point_arr, ckArrLen, label='Original points')
+plt.xlabel('Point')
+plt.ylabel('Student')
+plt.legend()
+plt.grid(True)
+plt.show()
