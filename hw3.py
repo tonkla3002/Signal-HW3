@@ -5,14 +5,14 @@ import matplotlib.pyplot as plt
 data = pd.read_csv("305335hw03data.xlsx - point.csv")
 data = data.sort_values(by='point')
 
-ck1 = 5.5
-ck2 = 56
-ck3 = 64.5
-ck4 = 70.8
-ck5 = 75.9
-ck6 = 78.6
-ck7 = 83.8
-ck8 = 91.9
+ck1 = 10.9
+ck2 = 21.7
+ck3 = 32.5
+ck4 = 43.3
+ck5 = 54.1
+ck6 = 64.9
+ck7 = 75.7
+ck8 = 86.5
 point_arr = [ck1, ck2, ck3, ck4, ck5, ck6, ck7, ck8]
 
 ck = []
@@ -35,7 +35,7 @@ for i in data['point']:
     abs_point7 = abs(i-ck7)
     abs_point8 = abs(i-ck8)
     ck = [abs_point1, abs_point2, abs_point3, abs_point4, abs_point5, abs_point6, abs_point7, abs_point8]
-    print(i,"ck: ", ck,"\n\n")
+    # print(i,"ck: ", ck,"\n\n")
     minCk = min(ck)
     if minCk == abs_point1:
         ck1arr.append(i)
@@ -113,10 +113,10 @@ print("ckSum: ", ckSum,"\n\n")
 p = ckSum / sum(data['point'])
 print("p: ", p,"\n\n")
 
-plt.figure(figsize=(10, 6))
-plt.bar(point_arr, ckArrLen, label='Original points')
-plt.xlabel('Point')
-plt.ylabel('Student')
-plt.legend()
-plt.grid(True)
-plt.show()
+# plt.figure(figsize=(10, 6))
+# plt.hist(data['point'], bins=15, edgecolor='black', alpha=0.7)
+# plt.title('Histogram of Total Scores')
+# plt.xlabel('Score')
+# plt.ylabel('Frequency')
+# plt.grid(True)
+# plt.show()
