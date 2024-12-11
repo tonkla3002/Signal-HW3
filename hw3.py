@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
-data = pd.read_csv("305335hw03data.xlsx - point.csv")
+data = pd.read_csv("305335hw03data.csv")
 data = data.sort_values(by='point')
 
 ck1 = 10.9
